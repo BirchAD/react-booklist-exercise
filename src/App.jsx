@@ -1,56 +1,14 @@
 import "./App.css";
+import EventExample from "./EventExample";
+import Book from "./Book";
+import bookArray from "./books";
 
 // Add an ID to each book object
-const bookArray = [
-  {
-    img: "https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
-    title: "Atomic Habits",
-    author: "James Clear",
-    id: 1,
-  },
-  {
-    img: "https://m.media-amazon.com/images/I/41X65pro2mS._SY291_BO1,204,203,200_QL40_ML2_.jpg",
-    title: "The Wasp Factory",
-    author: "Iain Banks",
-    id: 2,
-  },
-];
+
 
 // Create a new EventExample component here
 // and return a form
 
-const EventExample = () => {
-  // Define our event handlers here
-  const handleFormInput = (event) => {
-    console.log("onChange Fired!", event.target);
-  };
-
-  const handleClick = (event) => {
-    console.log("Button Clicked!", event.target);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("blah", e);
-  };
-
-  return (
-    <section>
-      <form onSubmit={handleSubmit}>
-        <h2>Some Form</h2>
-        <input
-          type="text"
-          name="example"
-          onChange={(e) => {
-            console.log(e.target.value);
-          }}
-          style={{ margin: "1rem 0" }}
-        />
-      </form>
-      <button onClick={handleSubmit}>Click Me!</button>
-    </section>
-  );
-};
 
 function App() {
   function getBook(id) {
@@ -78,22 +36,6 @@ function App() {
         );
       })}
     </section>
-  );
-}
-
-// Destructuring the props object in parentheses
-function Book({ img, title, author, children, getBook, id }) {
-  return (
-    <article className="book">
-      {/** Use the destructured props here */}
-      <img src={img} alt={title} />
-      <h2>{title}</h2>
-      <h4>{author}</h4>
-
-      {/* Place your children prop here */}
-      {children}
-      <button onClick={() => getBook(id)}>Get Book</button>
-    </article>
   );
 }
 
